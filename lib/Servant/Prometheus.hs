@@ -2,6 +2,8 @@ module Servant.Prometheus
     ( Meters
     , meters
 
+    , HasEndpoints
+
     , monitorServant
     , servePrometheusMetrics
     ) where
