@@ -22,11 +22,11 @@ type Bucket = Double
 defaultBuckets :: [Bucket]
 defaultBuckets = map (/ 1000)
  -- These are in ms
-  $ [5]
- ++ [10, 20 .. 90]
- ++ [100, 125 .. 275]
+  $ [5, 10, 25]
+ ++ [50, 100 .. 250]
  ++ [300, 400 .. 900]
- ++ [1000, 2000 .. 5000]
+ ++ [1000, 2000 .. 10000]
+ ++ [25000, 50000, 100000]
 
 -- | Type alias for clarity.
 --
