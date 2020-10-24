@@ -13,7 +13,8 @@ module Servant.Prometheus.Internal.Endpoints
   , endpointToLabels
   ) where
 
-import           Servant.API        as Servant
+import           Servant.API         as Servant
+import qualified Servant.Auth        as ServantAuth
 
 import           Control.Monad      (mplus)
 import           Data.Text          (Text)
@@ -89,6 +90,10 @@ instance HasEndpoints (sub :: *) => HasEndpoints (AuthProtect t :> sub) where
     getEndpoint _ = getEndpoint (Proxy :: Proxy sub)
 
 instance HasEndpoints (sub :: *) => HasEndpoints (BasicAuth r a :> sub) where
+    getEndpoints _ = getEndpoints (Proxy :: Proxy sub)
+    getEndpoint _ = getEndpoint (Proxy :: Proxy sub)
+
+instance HasEndpoints (sub :: *) => HasEndpoints (ServantAuth.Auth r a :> sub) where
     getEndpoints _ = getEndpoints (Proxy :: Proxy sub)
     getEndpoint _ = getEndpoint (Proxy :: Proxy sub)
 
