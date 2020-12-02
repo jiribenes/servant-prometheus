@@ -182,3 +182,10 @@ instance ReflectMethod method => HasEndpoints (Servant.Stream (method :: StdMeth
         _  -> Nothing
       where method = reflectMethod (Proxy :: Proxy method)
 #endif
+
+#if MIN_VERSION_servant(0,18,2)
+-- | Ignores fragments for now!
+instance (ToHttpApiData v, HasEndpoints (sub :: *)) => HasEndpoints (Servant.Fragment v :> sub) where
+    getEndpoints _ = getEndpoints (Proxy :: Proxy sub)
+    getEndpoint _ = getEndpoint (Proxy :: Proxy sub)
+#endif
