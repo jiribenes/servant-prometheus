@@ -1,5 +1,5 @@
 name:                servant-prometheus
-version:             0.2.1.2
+version:             0.2.1.3
 synopsis:            Helpers for using prometheus with servant
 description:         Helpers for using prometheus with servant. Each endpoint has its own metrics allowing more detailed monitoring than wai-middleware-prometheus allows
 license:             BSD3
@@ -21,7 +21,7 @@ library
   hs-source-dirs:      lib
   exposed-modules:     Servant.Prometheus
                      , Servant.Prometheus.Export
-  other-modules:       Servant.Prometheus.Internal.Core
+                     , Servant.Prometheus.Internal.Core
                      , Servant.Prometheus.Internal.Endpoints
                      , Servant.Prometheus.Internal.Inflight
                      , Servant.Prometheus.Internal.Middleware

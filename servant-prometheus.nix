@@ -5,7 +5,7 @@
 }:
 mkDerivation {
   pname = "servant-prometheus";
-  version = "0.2.1.2";
+  version = "0.2.1.3";
   src = ./.;
   isLibrary = true;
   isExecutable = true;
